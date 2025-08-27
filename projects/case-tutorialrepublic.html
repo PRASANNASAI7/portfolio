@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning Platform Case Study — Prasanna Sai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { margin:0; font-family:Inter,sans-serif; background:var(--bg,#0b0f14); color:var(--text,#eee); }
+    a { text-decoration:none; color:inherit; }
+
+    /* Navbar */
+    .nav { position:sticky; top:0; z-index:999; background:var(--bg-soft,#111723); border-bottom:1px solid rgba(255,255,255,0.08); padding:14px 0; }
+    .nav-inner { display:flex; justify-content:space-between; align-items:center; width:min(1200px,92%); margin:0 auto; }
+    .logo { display:flex; align-items:center; gap:12px; font-weight:800; }
+    .logo-badge { width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg,#7c5cff,#00e1ff); }
+    .nav-links { display:flex; gap:18px; align-items:center; }
+    .nav-links a { padding:6px 10px; border-radius:6px; font-weight:500; transition:all 0.2s ease; }
+    .nav-links a:hover { background:#7c5cff; color:#fff; }
+    .nav-links .cta { padding:10px 16px; border-radius:12px; background:linear-gradient(135deg,#7c5cff,#00e1ff); color:#0b0f14; font-weight:700; }
+
+    /* Hamburger menu */
+    .hamburger { display:none; flex-direction:column; justify-content:space-between; width:24px; height:18px; background:none; border:none; cursor:pointer; padding:0; }
+    .hamburger span { display:block; height:3px; width:100%; background:#eee; border-radius:2px; }
+    @media(max-width:768px){
+      .hamburger { display:flex; }
+      .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:60px; right:16px; background:var(--bg-soft); padding:16px; border-radius:8px; }
+      .nav-links.show { display:flex; }
+      .nav-links a { width:100%; text-align:center; }
+      .nav-links .cta { width:100%; text-align:center; }
+    }
+
+    main.container { width:min(1200px,92%); margin:32px auto; }
+    article img { width:100%; border-radius:12px; max-height:420px; object-fit:cover; margin-bottom:16px; }
+    h1 { font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:8px; }
+    .sub { color:#a9b3c1; margin-bottom:16px; }
+    h3 { margin-top:24px; font-size:1.2rem; margin-bottom:8px; }
+    ul { margin-left:20px; margin-bottom:16px; }
+    .btn { display:inline-block; padding:12px 20px; border-radius:8px; background:#0077b6; color:#fff; font-weight:600; transition: background 0.2s ease, transform 0.2s ease; }
+    .btn:hover { background:#0096c7; transform:translateY(-2px); }
+
+    /* Footer */
+    footer { background:#111; color:#eee; padding:28px 0; font-size:0.95rem; margin-top:60px; text-align:center; }
+    footer .social-icons { display:flex; gap:16px; justify-content:center; margin-top:12px; }
+    footer .social-icons a { color:#bbb; font-size:1.2rem; transition:color 0.2s; }
+    footer .social-icons a:hover { color:#fff; }
+    footer .cta { background:#0077b6; color:#fff; padding:8px 14px; border-radius:6px; font-weight:600; }
+    footer .cta:hover { background:#0096c7; }
+
+    /* Floating WhatsApp */
+    .whatsapp-float { position:fixed; bottom:20px; right:20px; width:55px; height:55px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fff; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,0.25); transition: transform 0.25s ease, background 0.2s ease; z-index:999; }
+    .whatsapp-float:hover { transform:scale(1.08); background:#1ebe5d; }
+
+    /* Reveal animation */
+    .reveal { opacity:0; transform:translateY(16px) scale(0.98); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.show { opacity:1; transform:none; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="/"><div class="logo-badge"></div><span>Prasanna Sai</span></a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+         <a href="/index.html" >Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/services.html">Services</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/contact.html" class="cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="container">
+    <article class="reveal">
+      <img src="/assets/img/tutorial-2.png" alt="Learning Platform Case Study"/>
+      <h1>Learning Platform Case Study</h1>
+      <p class="sub">A learning platform with structured curriculum, progress tracking and live sessions.</p>
+
+      <h3>Highlights</h3>
+      <ul>
+        <li>Structured curriculum (JSON)</li>
+        <li>Progress tracking & certificates</li>
+        <li>Live sessions & messaging</li>
+      </ul>
+
+      <a class="btn" href="https://wa.me/918309419511" target="_blank">Discuss this project on WhatsApp</a>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div>© <span id="year"></span> Prasanna Sai. All Rights Reserved.</div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/tripuraneniprasannasai" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="/contact.html" class="cta">Hire Me</a>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/918309419511" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Reduce motion
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('*').forEach(el => el.style.animation='none');
+    }
+
+    // Toggle navbar
+    function toggleMenu() { document.getElementById('nav-links').classList.toggle('show'); }
+  </script>
+</body>
+</html>

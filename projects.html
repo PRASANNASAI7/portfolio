@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Prasanna Sai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-soft: #111723;
+      --card-bg: rgba(255,255,255,0.06);
+      --text: #e6eef9;
+      --muted: #a9b3c1;
+      --primary: #7c5cff;
+      --brand-2: #00e1ff;
+      --border: 1px solid rgba(255,255,255,0.12);
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --radius: 12px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container { width: min(1200px, 92%); margin: 0 auto; }
+
+    /* Navbar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: saturate(120%) blur(10px);
+      background: var(--bg-soft);
+      border-bottom: var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .logo-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--brand-2));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover { 
+      background: var(--primary); 
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .nav-links .cta {
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--brand-2));
+      color: #0b0f14;
+      font-weight: 700;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    @media(max-width:768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        top: 60px;
+        right: 16px;
+        padding: 16px;
+        border-radius: 8px;
+        background: var(--bg-soft);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+
+      .nav-links.show { display: flex; }
+      
+      .nav-links a { width: 100%; text-align: center; }
+      .nav-links .cta { width: 100%; text-align: center; }
+    }
+
+    /* Chips styling */
+    .chip { cursor:pointer; padding:6px 12px; border-radius:24px; background: var(--card-bg); font-size:0.85rem; color:var(--text); margin-right:8px; display:inline-block; transition:0.3s; }
+    .chip.active, .chip:hover { background: var(--primary); color:#fff; }
+
+    /* Cards layout */
+    .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top:20px; }
+    .card { text-decoration:none; color:inherit; border-radius:var(--radius); overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform 0.3s, opacity 0.3s; cursor:pointer; }
+    .card:hover { transform: translateY(-4px); }
+    .card img { width:100%; display:block; }
+    .card-body { padding:12px; display:flex; flex-direction: column; justify-content: space-between; height:120px; }
+    .card-body .btn { align-self: center; margin-top: 8px; }
+
+    @media(max-width:992px){ .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width:600px){ .cards { grid-template-columns: 1fr; } }
+
+    /* Reveal animations */
+    .reveal { opacity:0; transform:translateY(16px) scale(.98); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show { opacity:1; transform:none; }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed; bottom:20px; right:20px;
+      width:55px; height:55px; border-radius:50%;
+      background:#25D366; display:flex; align-items:center; justify-content:center;
+      font-size:28px; color:#fff; text-decoration:none;
+      box-shadow:0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+      z-index:999;
+    }
+    .whatsapp-float:hover { transform:scale(1.08); background:#1ebe5d; box-shadow:0 6px 16px rgba(0,0,0,0.3); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="/"><div class="logo-badge"></div><span>Prasanna Sai</span></a>
+      <button class="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/contact.html" class="cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="container">
+    <h1 class="reveal">Projects</h1>
+
+    <!-- Projects Cards -->
+    <div class="cards">
+
+      <div class="card reveal" onclick="window.location.href='/projects/case-fashion.html'">
+        <img src="/assets/img/fashion-1.png" alt="DailyFashions"/>
+        <div class="card-body">
+          <strong>DailyFashions</strong>
+          <div style="color:var(--muted)">Payments • Auth • Analytics • home-delivery • products</div>
+          <a href="https://balaji14385.github.io/fashion/" target="_blank" class="btn" onclick="event.stopPropagation()">View Site</a>
+        </div>
+      </div>
+
+      <div class="card reveal" onclick="window.location.href='/projects/case-tutorialrepublic.html'">
+        <img src="/assets/img/tutorial-1.png" alt="Tutorial Republic"/>
+        <div class="card-body">
+          <strong>Tutorial Republic</strong>
+          <div style="color:var(--muted)">Courses • Curriculum • Realtime-updates • code-editor • examples</div>
+          <a href="https://tutorialrepublic.com" target="_blank" class="btn" onclick="event.stopPropagation()">View Site</a>
+        </div>
+      </div>
+
+      <div class="card reveal" onclick="window.location.href='/projects/case-delightfullbites.html.html'">
+        <img src="/assets/img/delightfullbites.png" alt="Delight-Full-Bites"/>
+        <div class="card-body">
+          <strong>Delight-Full-Bites</strong>
+          <div style="color:var(--muted)">Payments • Auth • Analytics • home-delivery • products</div>
+          <a href="https://example-ecom-site.com" target="_blank" class="btn" onclick="event.stopPropagation()">View Site</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;">
+      <div>© <span id="year"></span> Prasanna Sai. All Rights Reserved.</div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/tripuraneniprasannasai" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="/contact.html" class="cta">Hire Me</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <a class="whatsapp-float" href="https://wa.me/918309419511" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Navbar toggle
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('show');
+    }
+
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal animations
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('*').forEach(el => el.style.animation='none');
+    }
+  </script>
+</body>
+</html>

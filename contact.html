@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Prasanna Sai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+  
+:root {
+  --bg: #0b0f14;
+  --bg-soft: #111723;
+  --text: #e6eef9;
+  --muted: #a9b3c1;
+  --primary: #7c5cff;
+  --primary-hover: #00e1ff;
+  --border: 1px solid rgba(255,255,255,0.12);
+  --radius: 16px;
+  --shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+body, * { margin:0; padding:0; box-sizing:border-box; font-family: Inter, system-ui; background: var(--bg); color: var(--text); }
+a { color:inherit; text-decoration:none; }
+
+/* Navbar */
+.nav { position: sticky; top:0; z-index:999; background: var(--bg-soft); border-bottom: var(--border); padding:14px 0; }
+.nav-inner { display:flex; justify-content:space-between; align-items:center; width:min(1200px,92%); margin:0 auto; position:relative; }
+.logo { display:flex; align-items:center; gap:10px; font-weight:800; }
+.logo-badge { width:36px; height:36px; background: linear-gradient(135deg, var(--primary), #00e1ff); border-radius:10px; }
+.nav-links { display:flex; gap:18px; }
+.nav-links a { padding:6px 10px; border-radius:6px; transition:0.2s; font-weight:500; }
+.nav-links a:hover { background: var(--primary); color:#0b0f14; transform:scale(1.05); }
+.nav-links .cta { background: linear-gradient(135deg,var(--primary),var(--primary-hover)); color:#0b0f14; padding:8px 14px; font-weight:600; }
+
+/* Hamburger */
+.hamburger { display:none; flex-direction:column; justify-content:space-between; width:24px; height:18px; background:none; border:none; cursor:pointer; }
+.hamburger span { height:3px; width:100%; background:var(--text); border-radius:2px; }
+
+/* Main */
+main { width:min(1200px,92%); margin: 32px auto; }
+h1 { font-family:'Playfair Display', serif; font-size:clamp(32px,5vw,48px); margin-bottom:12px; }
+.sub { color:var(--muted); margin-bottom:24px; }
+
+/* Contact Form Styles */
+.grid { display:grid; grid-template-columns:1fr 320px; gap:28px; }
+form#contactForm { display:grid; gap:16px; background: var(--bg-soft); padding:28px; border-radius: var(--radius); box-shadow: var(--shadow); }
+form#contactForm div.row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+form#contactForm input, form#contactForm textarea {
+  width:100%; padding:14px 16px; border-radius:12px; border:none; background: rgba(255,255,255,0.05); color:var(--text);
+  font-size:0.95rem; transition:0.25s ease, box-shadow 0.25s ease;
+}
+form#contactForm input:focus, form#contactForm textarea:focus {
+  outline:none; box-shadow:0 0 0 2px var(--primary); background: rgba(255,255,255,0.1);
+}
+form#contactForm button {
+  padding:14px 20px; font-weight:600; font-size:1rem; border:none; border-radius:12px;
+  background: linear-gradient(135deg,var(--primary),var(--primary-hover)); color:#0b0f14; cursor:pointer;
+  transition:0.25s ease, transform 0.25s;
+}
+form#contactForm button:hover { transform: translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.4); }
+
+/* Success message */
+#successMessage { display:none; padding:10px 12px; border-radius:8px; background:#00e676; color:#0b0f14; font-weight:600; text-align:center; transition:0.3s ease; }
+
+/* Sidebar Card */
+aside.card { padding:20px; border-radius: var(--radius); background: var(--bg-soft); border: var(--border); box-shadow:0 8px 20px rgba(0,0,0,0.25); }
+aside.card strong { display:block; font-size:1.1rem; margin-bottom:12px; }
+aside.card a { color: var(--primary); text-decoration:underline; }
+
+/* Footer */
+footer { border-top: var(--border); padding:28px 0; text-align:center; color: var(--muted); margin-top:40px; }
+footer .social-icons { display:flex; justify-content:center; gap:18px; margin-top:8px; align-items:center; }
+footer .social-icons a { color:var(--text); font-size:1.2rem; transition:0.2s; }
+footer .social-icons a:hover { color: var(--primary); }
+footer .cta { background: var(--primary); color:#0b0f14 !important; padding:6px 12px; border-radius:6px; font-weight:500; }
+footer .cta:hover { background: var(--primary-hover); }
+
+ /* Floating WA */
+    .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;font-size:28px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.25);transition: transform 0.25s ease, box-shadow 0.25s ease;z-index:999;}
+    .whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 16px rgba(0,0,0,0.3);background:#1ebe5d;}
+  
+
+
+/* Reveal Animations */
+.reveal { opacity:0; transform:translateY(20px); transition: all 0.6s ease; }
+.reveal.show { opacity:1; transform:translateY(0); }
+
+/* Responsive */
+@media(max-width:768px) {
+  .hamburger { display:flex; }
+  .nav-links { display:none; flex-direction:column; position:absolute; top:60px; right:16px; background:var(--bg-soft); padding:16px; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .nav-links.show { display:flex; }
+  .grid { grid-template-columns:1fr; }
+  aside.card { order:-1; } 
+}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/"><div class="logo-badge"></div><span>Prasanna Sai</span></a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+       <a href="/index.html" >Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/services.html">Services</a>
+        <a href="/blog.html">Blog</a>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <h1 class="reveal">Contact</h1>
+    <p class="sub reveal">Interested in working together? Send a message or chat on WhatsApp.</p>
+
+    <div class="grid">
+      <form id="contactForm" class="reveal">
+        <div style="display:grid;grid-template-columns:1fr 1fr; gap:12px;">
+          <input required name="name" placeholder="Your Name" />
+          <input required name="email" type="email" placeholder="Your Email" />
+        </div>
+        <input name="subject" placeholder="Subject" />
+        <textarea required name="message" rows="6" placeholder="Message"></textarea>
+        <button type="submit">Send Message</button>
+        <div id="successMessage">✅ Your message has been sent successfully!</div>
+      </form>
+
+      <aside class="card reveal">
+        <strong>Quick contact</strong>
+        <p>WhatsApp: <a href="https://wa.me/918309419511" target="_blank">+91 83094 19511</a></p>
+        <p>Email: t.prasannasai.7@gmail.com</p>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© <span id="year"></span> Prasanna Sai. All Rights Reserved.</div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/tripuraneniprasannasai" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="/contact.html" class="cta">Hire Me</a>
+    </div>
+  </footer>
+
+<!-- Floating WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/918309419511" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <script>
+    // Hamburger menu toggle
+    function toggleMenu() { document.getElementById('nav-links').classList.toggle('show'); }
+
+    // Update year dynamically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal animations
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Contact form
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('Message submitted:', data); // Replace with backend call
+      successMessage.style.display = 'block';
+      form.reset();
+      setTimeout(()=> successMessage.style.display='none', 4000);
+    });
+  </script>
+</body>
+</html>

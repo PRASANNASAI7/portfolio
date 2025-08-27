@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Prasanna Sai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-soft: #111723;
+      --card: rgba(255,255,255,0.06);
+      --text: #e6eef9;
+      --muted: #a9b3c1;
+      --primary: #7c5cff;
+      --border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    body { font-family: Inter, sans-serif; margin:0; background: var(--bg); color: var(--text);}
+    a{color:inherit;text-decoration:none}
+    .container { width:min(1200px,92%); margin:0 auto; }
+
+    /* NAVIGATION */
+    .nav{position:sticky;top:0;z-index:999;backdrop-filter:saturate(120%) blur(10px);background:var(--bg-soft);border-bottom:var(--border);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;position:relative;}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;}
+    .logo-badge{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#00e1ff);}
+    .nav-links{display:flex;gap:18px;align-items:center;}
+    .cta{padding:10px 16px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#00e1ff);color:#0b0f14;font-weight:700;}
+
+    /* Hamburger */
+    .hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer;padding:0;}
+    .hamburger span{display:block;height:3px;background:var(--text);border-radius:2px;}
+
+    /* MAIN CONTENT */
+    main h2 { font-size:1.4rem; margin:28px 0 14px; font-weight:600; color:var(--text);}
+    main ul { list-style:none; padding-left:0; margin:0 0 16px; }
+    main ul li { margin:8px 0; line-height:1.6; color:var(--muted);}
+    main ul li strong { color: var(--text); font-weight:600; }
+    .timeline { border-left:2px solid var(--border); margin:16px 0; padding-left:16px; }
+    .timeline-item { margin-bottom:14px; color:var(--muted); position:relative;}
+    .timeline-item::before { content:""; position:absolute; left:-9px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--primary); }
+    .chip { padding:6px 12px; border-radius:24px; background:var(--bg-soft); font-size:0.85rem; color:var(--text); font-weight:500; transition:0.2s; }
+    .chip:hover { background: var(--primary); color:#fff; }
+    .resume-btn { display:inline-block; padding:10px 18px; background:blue; color:#fff; font-weight:600; border-radius:8px; text-decoration:none; font-size:0.95rem; transition:0.2s; }
+
+    /* CARDS */
+    aside.card{background:var(--card); border-radius:16px; padding:20px; text-align:center; margin-top:0;}
+    aside.card img{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:12px;border:3px solid #0077b6; box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+    .reveal.show{opacity:1;transform:translateY(0);}
+
+    /* Footer */
+    footer{border-top:var(--border);padding:32px 0;color:var(--muted);}
+    .social-icons{display:flex;gap:16px;align-items:center;justify-content:center;}
+    .social-icons a{font-size:20px;color:var(--text);transition:0.2s;}
+    .social-icons a:hover{color:var(--primary);transform:scale(1.1);}
+
+    /* WhatsApp */
+    .whatsapp-float{position:fixed;bottom:22px;right:22px;width:48px;height:48px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 10px rgba(0,0,0,0.2);font-size:1.2rem;transition:0.2s;}
+    .whatsapp-float:hover{background:#1ebe5d;transform:scale(1.05);}
+
+    /* Grid layout */
+    .main-grid{display:grid;grid-template-columns:1fr 320px; gap:32px; align-items:start;}
+    
+    /* Mobile Responsive */
+    @media(max-width:768px){
+      .hamburger{display:flex;}
+      .nav-links{display:none;position:absolute;top:60px;right:16px;background:var(--bg-soft);flex-direction:column;gap:12px;padding:16px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+      .nav-links.show{display:flex;}
+      .main-grid{grid-template-columns:1fr; gap:24px;}
+      aside.card{order:-1; width:100%; margin:0 auto;} /* Card comes first on mobile */
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="/"><div class="logo-badge"></div><span>Prasanna Sai</span></a>
+    <button class="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/services.html">Services</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/contact.html" class="cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="container">
+  <h1 class="reveal">About Me</h1>
+  <p class="sub reveal">
+    Hi — I'm <strong>Prasanna Sai</strong>. I design and build performant, secure web apps with thoughtful UX.
+  </p>
+
+  <div class="main-grid">
+    <section>
+      <h2 class="reveal">Personal Details</h2>
+      <ul class="reveal">
+        <li><strong>Date of Birth:</strong> 23th FEB 2008</li>
+        <li><strong>Location:</strong> Kondapalle, NTR-District, Andhra Pradesh, India</li>
+        <li><strong>Family:</strong> Parents & one sibling, supportive in my career journey</li>
+      </ul>
+
+      <h2 class="reveal">What I Do</h2>
+      <ul class="reveal">
+        <li>Full-stack web development (Node.js, MySQL, REST, WebSocket)</li>
+        <li>UX-focused frontend (HTML/CSS/JS, animations, accessibility)</li>
+        <li>Performance optimisation & security hardening</li>
+      </ul>
+
+      <h2 class="reveal">Experience</h2>
+      <div class="timeline reveal">
+        <div class="timeline-item"><strong>2025–Present</strong> — Student, Web Developer, Product teams</div>
+        <div class="timeline-item"><strong>2023–24</strong> — Worked 1 year with <a href="http://www.kbksoftwaresolutions.com/index.html" target="_blank">KBK Software Solutions</a></div>
+      </div>
+
+      <h2 class="reveal">Education</h2>
+      <div class="timeline reveal">
+        <div class="timeline-item"><strong>2025-Present</strong> — B.Tech in CSE, USHA RAMA COLLEGE OF ENGINEERING AND TECHNOLOGY</div>
+        <div class="timeline-item"><strong>2022-2025</strong> — Diploma in AIML, A.A.N.M&V.V.R.S.R(POLY-GUDLAVALLERU)</div>
+        <div class="timeline-item"><strong>2019-2022</strong> — 8th to 10th, RAVINDHRA BHARATHI PUBLIC SCHOOL</div>
+      </div>
+
+      <h2 class="reveal">Resume</h2>
+      <p class="reveal">You can view or download my full resume here:</p>
+      <a href="/assets/docs/TRIPURANENI PRASANNASAI.pdf" class="resume-btn reveal" download>⬇ Download Resume</a>
+    </section>
+
+    <aside class="card reveal">
+      <img src="/assets/img/sai.jpg" alt="Profile photo"/>
+      <div style="font-weight:700;font-size:1.1rem">Prasanna Sai</div>
+      <div style="color:var(--muted);font-size:14px;margin-bottom:16px">Student · Developer · Designer</div>
+      <div>
+        <strong>Skills</strong>
+        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+          <div class="chip">Node.js/React.js</div>
+          <div class="chip">adobe-photoshop</div>
+          <div class="chip">adobe-premire pro</div>
+          <div class="chip">ms-excel,word,presentation...</div>
+          <div class="chip">Crafting</div>
+          <div class="chip">MySQL/MongoDB</div>
+          <div class="chip">BOOTSTRAP/TAILWIND-CSS</div>
+          <div class="chip">HTML/CSS/JS</div>
+          <div class="chip">Wordpress</div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <strong>Certificates</strong>
+        <div style="margin-top:10px; display:flex; flex-direction:column; gap:10px; align-items:center;">
+          <a href="/assets/docs/6th sem marks memo .pdf" class="resume-btn" download>⬇ Diploma</a>
+          <a href="/assets/docs/INTERNSHIP CERTIFICATE.pdf" class="resume-btn" download>⬇ Internship</a>
+          <a href="/assets/docs/10TH SSC MEMO.pdf" class="resume-btn" download>⬇ 10th SSC</a>
+        </div>
+      </div>
+      <div style="margin-top:16px">
+        <strong>Contact</strong>
+        <div style="color:var(--muted);margin-top:6px">
+          <a href="mailto:t.prasannasai.7@gmail.com">t.prasannasai.7@gmail.com</a><br/>
+          +91 83094 19511
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div>© <span id="year"></span> Prasanna Sai. All Rights Reserved.</div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/tripuraneniprasannasai?igsh=MmNyaDRwdDRpdG11" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="/contact.html" class="cta">Hire Me</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a class="whatsapp-float" href="https://wa.me/918309419511" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- SCRIPT -->
+<script>
+  function toggleMenu(){
+    document.getElementById('nav-links').classList.toggle('show');
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('*').forEach(el=>el.style.animation='none');
+  }
+</script>
+</body>
+</html>

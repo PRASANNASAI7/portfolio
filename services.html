@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services — Prasanna Sai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg, #0b0f14);
+      color: var(--text, #eee);
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--bg-soft, #111723);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 14px 0;
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; width: min(1200px, 92%); margin: 0 auto; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .logo-badge { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg,#7c5cff,#00e1ff); }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .nav-links a { padding: 6px 10px; border-radius: 6px; font-weight: 500; transition: all 0.2s ease; }
+    .nav-links a:hover { background: #7c5cff; color: #fff; }
+    .nav-links .cta { padding: 10px 16px; border-radius: 12px; background: linear-gradient(135deg,#7c5cff,#00e1ff); color: #0b0f14; font-weight: 700; }
+
+    /* Hamburger menu */
+    .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: none; border: none; cursor: pointer; padding: 0; }
+    .hamburger span { display: block; height: 3px; width: 100%; background: #eee; border-radius: 2px; }
+    @media(max-width:768px){
+      .hamburger { display: flex; }
+      .nav-links { display: none; flex-direction: column; gap: 12px; position: absolute; top: 60px; right: 16px; background: var(--bg-soft); padding: 16px; border-radius: 8px; }
+      .nav-links.show { display: flex; }
+      .nav-links a { width: 100%; text-align: center; }
+      .nav-links .cta { width: 100%; text-align: center; }
+    }
+
+    /* Services grid */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 32px; }
+    .card { background: var(--card-bg, #111); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.25s, box-shadow 0.25s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+    .card-content { padding: 20px; }
+    .card-content h2 { font-size: 1.25rem; margin-bottom: 8px; font-weight: 600; font-family: 'Playfair Display', serif; }
+    .card-content p { font-size: 0.95rem; line-height: 1.5; color: #a9b3c1; }
+
+    @media (max-width: 768px) {
+      .card-content h2 { font-size: 1.1rem; }
+      .card-content p { font-size: 0.9rem; }
+    }
+
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(16px) scale(0.98); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: #111; color: #eee; padding: 28px 0; font-size: 0.95rem; margin-top: 60px; }
+    footer .social-icons { display: flex; gap: 16px; justify-content: center; margin-top: 12px; }
+    footer .social-icons a { color: #bbb; font-size: 1.2rem; transition: color 0.2s ease; }
+    footer .social-icons a:hover { color: #fff; }
+    footer .cta { background: #0077b6; color: #fff; padding: 8px 14px; border-radius: 6px; font-weight: 600; }
+    footer .cta:hover { background: #0096c7; }
+
+    /* WhatsApp Floating */
+    .whatsapp-float { position: fixed; bottom:20px; right:20px; width:55px; height:55px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fff; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,0.25); transition: transform 0.25s ease, background 0.2s ease; z-index:999; }
+    .whatsapp-float:hover { transform:scale(1.08); background:#1ebe5d; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="/"><div class="logo-badge"></div><span>Prasanna Sai</span></a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/contact.html" class="cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="container">
+    <header>
+      <h1 class="reveal">Services</h1>
+      <p class="sub reveal">Deliverables crafted for product success.</p>
+    </header>
+
+    <section class="services-grid">
+      <article class="card reveal"><div class="card-content"><h2>Custom Web Apps</h2><p>Full-stack development with Node.js, MySQL, REST APIs, and scalable architectures.</p></div></article>
+      <article class="card reveal"><div class="card-content"><h2>UI / UX & Prototyping</h2><p>Design systems, interactive prototypes, accessibility audits, and user flows.</p></div></article>
+      <article class="card reveal"><div class="card-content"><h2>Performance & Security</h2><p>Optimization, caching, load testing, and enterprise-grade security hardening.</p></div></article>
+      <article class="card reveal"><div class="card-content"><h2>API Development & Integration</h2><p>Custom REST & GraphQL APIs, third-party integrations (Stripe, Twilio, etc.).</p></div></article>
+      <article class="card reveal"><div class="card-content"><h2>Cloud & Deployment</h2><p>Deployment on AWS, Render, Vercel, or Netlify with CI/CD pipelines and monitoring.</p></div></article>
+      <article class="card reveal"><div class="card-content"><h2>Database Design & Optimization</h2><p>Relational database modeling, query optimization, indexing, and migrations.</p></div></article>
+      <article class="card reveal"><div class="card-content"><h2>Consulting & Mentorship</h2><p>One-on-one consulting, technical strategy, and team mentorship for scaling projects.</p></div></article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div>© <span id="year"></span> Prasanna Sai. All Rights Reserved.</div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/tripuraneniprasannasai" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="/contact.html" class="cta">Hire Me</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/918309419511" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('*').forEach(el => el.style.animation='none');
+    }
+
+    function toggleMenu(){ document.getElementById('nav-links').classList.toggle('show'); }
+  </script>
+</body>
+</html>

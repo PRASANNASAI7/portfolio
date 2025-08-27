@@ -1,0 +1,307 @@
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog — Prasanna Sai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+      .reveal.show { opacity: 1; transform: translateY(0); }
+
+      main .card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 18px;
+        margin-top: 18px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      main .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+      }
+      main .card h2 {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+      }
+      main .card p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+      }
+      main .card .btn {
+        display: inline-block;
+        padding: 8px 14px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      main .card .btn:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+      }
+
+
+:root{
+      --bg: #0b0f14;
+      --bg-soft: #111723;
+      --card: rgba(255,255,255,0.06);
+      --text: #e6eef9;
+      --muted: #a9b3c1;
+      --brand: #7c5cff;
+      --brand-2: #00e1ff;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --radius: 16px;
+      --glass: rgba(255,255,255,0.06);
+      --border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: var(--bg); color:var(--text); }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{width:min(1200px,92%);margin:0 auto;}
+
+     :root {
+    --bg-soft: #111723;
+    --text: #e6eef9;
+    --primary: #7c5cff;
+    --border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: saturate(120%) blur(10px);
+    background: var(--bg-soft);
+    border-bottom: var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .logo-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), #00e1ff);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-weight: 500;
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  .nav-links .cta {
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), #00e1ff);
+    color: #0b0f14;
+    font-weight: 700;
+  }
+
+  /* Hamburger menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--text);
+    border-radius: 2px;
+  }
+
+  /* MOBILE STYLES */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 16px;
+      background: var(--bg-soft);
+      padding: 16px;
+      gap: 12px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .nav-links a {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+
+    .nav-links .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary), #00e1ff);
+      color: #0b0f14 !important;
+      font-weight: 700;
+    }
+  }
+
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="logo" href="/"><div class="logo-badge"></div><span>Prasanna Sai</span></a>
+
+        <!-- Hamburger button for mobile -->
+        <button class="hamburger" aria-label="Toggle Menu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Added id="nav-links" -->
+        <div class="nav-links" id="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/projects.html">Projects</a>
+          <a href="/services.html">Services</a>
+          <a href="/contact.html" class="cta">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="container">
+      <h1 class="reveal">Blog</h1>
+      <p class="sub reveal">Short reads about development, design, and performance.</p>
+
+      <article class="card reveal">
+        <h2>Designing for Performance</h2>
+        <div style="color:var(--muted);font-size:13px">Aug 2025 · 6 min read</div>
+        <p>A short guide to making UI choices that reduce load and improve perceived speed.</p>
+        <a href="https://backlinko.com/hub/content/blog-design" class="btn">Read more</a>
+      </article>
+
+      <article class="card reveal">
+        <h2>Node.js Best Practices</h2>
+        <div style="color:var(--muted);font-size:13px">Jul 2025 · 7 min read</div>
+        <p>How to write clean, maintainable, and secure Node.js code for production apps.</p>
+        <a href="https://nodejs.org/en/blog/release/v24.6.0" target="_blank" class="btn">Read more</a>
+      </article>
+
+      <article class="card reveal">
+        <h2>Frontend UX Optimization</h2>
+        <div style="color:var(--muted);font-size:13px">Jun 2025 · 5 min read</div>
+        <p>Tips and techniques to make your web interfaces more intuitive and faster.</p>
+        <a href="https://www.toptal.com/developers/blog/web-front-end" target="_blank" class="btn">Read more</a>
+      </article>
+
+      <article class="card reveal">
+        <h2>Database Performance Tips</h2>
+        <div style="color:var(--muted);font-size:13px">May 2025 · 6 min read</div>
+        <p>Learn how to optimize MySQL and MongoDB queries for faster data retrieval.</p>
+        <a href="https://dotnetfullstackdev.medium.com/improving-database-performance-top-10-strategies-and-techniques-with-ms-sql-0febe87f715b" target="_blank" class="btn">Read more</a>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;">
+        <div>© <span id="year"></span> Prasanna Sai. All Rights Reserved.</div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/tripuraneniprasannasai" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="/contact.html" class="cta">Hire Me</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a class="whatsapp-float" 
+      href="https://wa.me/918309419511?text=Hi%20Prasanna%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect." 
+      target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+  // Hamburger menu toggle
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('show');
+  }
+
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Reveal animation
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('*').forEach(el => el.style.animation = 'none');
+  }
+</script>
+
+  </body>
+  </html>
