@@ -75,6 +75,14 @@
       .main-grid{grid-template-columns:1fr; gap:24px;}
       aside.card{order:-1; width:100%; margin:0 auto;} /* Card comes first on mobile */
     }
+    footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers horizontally */
+  text-align: center;    /* ensures text aligns center */
+  gap: 12px;             /* small spacing between text & social icons */
+}
+
   </style>
 </head>
 <body>
@@ -177,7 +185,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div>© <span id="year"></span> Prasanna Sai. All Rights Reserved.</div>
+    <div>© <span id="year"></span> <a href="https://prasannasaiportfolio.netlify.app/">Prasanna Sai.</a> All Rights Reserved.</div>
     <div class="social-icons">
       <a href="https://www.instagram.com/tripuraneniprasannasai?igsh=MmNyaDRwdDRpdG11" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -186,6 +194,7 @@
     </div>
   </div>
 </footer>
+
 
 <!-- WhatsApp -->
 <a class="whatsapp-float" href="https://wa.me/918309419511" target="_blank" aria-label="Chat on WhatsApp">
