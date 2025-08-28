@@ -227,6 +227,50 @@
     .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;font-size:28px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.25);transition: transform 0.25s ease, box-shadow 0.25s ease;z-index:999;}
     .whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 16px rgba(0,0,0,0.3);background:#1ebe5d;}
   
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+ width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(0, 225, 255, 0.6);
+  z-index: 3;
+}
+
+/* Music wave effect */
+.hero-image::before,
+.hero-image::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--brand-2); /* neon cyan wave */
+  border-right-color: var(--brand); /* purple wave */
+  animation: spinWave 4s linear infinite;
+}
+
+.hero-image::after {
+  width: 300px;
+  height: 300px;
+  border-top-color: var(--brand);
+  border-right-color: var(--brand-2);
+  animation-duration: 6s;
+}
+
+@keyframes spinWave {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.05); }
+}
+
+
   </style>
 </head>
 
@@ -270,6 +314,11 @@
             <a class="btn" href="https://wa.me/918309419511" target="_blank">WhatsApp</a>
           </div>
         </div>
+
+        <!-- 👇 Right-side image -->
+    <div class="hero-image reveal" style="transition-delay:.2s">
+      <img src="/assets/img/sai.jpg" alt="Prasanna Sai" />
+    </div>
       </div>
     </header>
 
