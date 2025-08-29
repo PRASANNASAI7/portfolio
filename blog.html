@@ -197,6 +197,14 @@
     }
   }
 
+  /* Footer */
+footer { border-top: var(--border); padding:28px 0; text-align:center; color: var(--muted); margin-top:40px; }
+footer .social-icons { display:flex; justify-content:center; gap:18px; margin-top:8px; align-items:center; }
+footer .social-icons a { color:var(--text); font-size:1.2rem; transition:0.2s; }
+footer .social-icons a:hover { color: var(--primary); }
+footer .cta { background: var(--primary); color:#0b0f14 !important; padding:6px 12px; border-radius:6px; font-weight:500; }
+footer .cta:hover { background: var(--primary-hover); }
+
     </style>
   </head>
   <body>
@@ -258,17 +266,17 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-      <div class="container" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;">
-        <div>© <span id="year"></span> <a href="https://prasannasaiportfolio.netlify.app/">Prasanna Sai.</a> All Rights Reserved.</div>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/tripuraneniprasannasai" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="/contact.html" class="cta">Hire Me</a>
-        </div>
+  <footer>
+    <div class="container" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;">
+      <div>© <span id="year"></span> <a href="https://prasannasaiportfolio.netlify.app/">Prasanna Sai.</a> All Rights Reserved.</div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/tripuraneniprasannasai" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1CBheC1DyQ/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:t.prasannasai.7@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="/contact.html" class="cta">Hire Me</a>
       </div>
-    </footer>
+    </div>
+  </footer>
 
     <!-- Floating WhatsApp -->
     <a class="whatsapp-float" 
